@@ -1,0 +1,179 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "dataset": "3 generated image imports; not real browser captures; no private data",
+  "captures": [
+    {
+      "fixture": "dip",
+      "id": "7b02d0b0-a561-40c6-998c-457736c857d9",
+      "http_ack_ms": 517.79,
+      "telemetry": {
+        "capture_ack_ms": 294.4,
+        "extraction_finished_ms": 30914.41,
+        "text_ready_ms": 30914.41,
+        "vision_inference_ms": 12085.54,
+        "vision_ready_ms": 51177.1
+      },
+      "stages": {
+        "extraction": "ready",
+        "vision": "ready",
+        "embedding": "unavailable"
+      },
+      "ocr_text": "PUBLICSYNTHETICDEMO",
+      "description": "Line chart titled PUBLIC SYNTHETIC DEMO with a green trend line starting medium-high, dipping significantly, and rising to a peak, accompanied by a red dot in the lower right.\nBlack vertical and horizontal axes of the chart\nGreen line showing trend with a slight dip, sharp drop, minimum point, and sharp rise to a peak\nSolid red circle indicator positioned in the lower right area\nThe chart title is positioned at the top left above the axes and chart line\nThe green chart line is plotted against the black vertical and horizontal axes\nThe red dot is located below the right side of the green chart line in the lower right quadrant",
+      "issues": [
+        "1 model-inferred region(s) omitted because their coordinates or format were invalid."
+      ]
+    },
+    {
+      "fixture": "rise",
+      "id": "09bdca03-f7f7-491e-abfe-aef3b3b85de0",
+      "http_ack_ms": 373.42,
+      "telemetry": {
+        "capture_ack_ms": 188.41,
+        "extraction_finished_ms": 21141.0,
+        "text_ready_ms": 21141.0,
+        "vision_inference_ms": 9411.77,
+        "vision_ready_ms": 36380.6
+      },
+      "stages": {
+        "extraction": "ready",
+        "vision": "ready",
+        "embedding": "unavailable"
+      },
+      "ocr_text": "PUBLICSYNTHETICDEMO",
+      "description": "A line graph titled \"PUBLIC SYNTHETIC DEMO\" features an upward-trending green line and a blue circular icon on the lower right.\nGreen line showing an upward trend from left to right\nBlue circle located at the bottom right below the green line\nPUBLIC SYNTHETIC DEMO text is positioned above the chart area at the top left.\nGreen chart line trends upwards from the lower left towards the upper right.\nBlue circle is positioned below the right portion of the green line.",
+      "issues": [
+        "1 model-inferred region(s) omitted because their coordinates or format were invalid."
+      ]
+    },
+    {
+      "fixture": "layout",
+      "id": "68e0bfeb-1879-435b-8134-c103800bd76e",
+      "http_ack_ms": 341.34,
+      "telemetry": {
+        "capture_ack_ms": 164.31,
+        "extraction_finished_ms": 10876.4,
+        "text_ready_ms": 10876.4,
+        "vision_inference_ms": 16489.68,
+        "vision_ready_ms": 33077.03
+      },
+      "stages": {
+        "extraction": "ready",
+        "vision": "ready",
+        "embedding": "unavailable"
+      },
+      "ocr_text": "PUBLICSYNTHETICDEMO\n>npmrundev",
+      "description": "The frame displays a split-screen layout with 'PUBLIC SYNTHETIC DEMO' at the top. On the left is a dark terminal window showing the green text '> npm run dev'. On the right is a browser or application mock-up with a gray top bar, a blue banner below it, and three white rectangular placeholders arranged horizontally underneath.\ndark terminal window on the left\nbrowser mockup on the right\nfirst white rectangular placeholder card\nsecond white rectangular placeholder card\nterminal is positioned to the left of the mockup\nterminal_text is contained inside terminal\nmockup_header is at the top of mockup\nblue_banner is below mockup_header inside mockup\ncard_1, card_2, and card_3 are arranged horizontally below blue_banner inside mockup",
+      "issues": [
+        "5 model-inferred region(s) omitted because their coordinates or format were invalid."
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "query": "green line dips then rises steeply",
+      "expected": [
+        "dip"
+      ],
+      "retrieved": [
+        "rise",
+        "dip"
+      ],
+      "top1": false,
+      "top3": true,
+      "ms": 53.06,
+      "mode": "text"
+    },
+    {
+      "query": "green line steadily increases",
+      "expected": [
+        "rise"
+      ],
+      "retrieved": [
+        "rise",
+        "dip"
+      ],
+      "top1": true,
+      "top3": true,
+      "ms": 19.55,
+      "mode": "text"
+    },
+    {
+      "query": "dark terminal left browser preview right",
+      "expected": [
+        "layout"
+      ],
+      "retrieved": [
+        "layout",
+        "rise",
+        "dip"
+      ],
+      "top1": true,
+      "top3": true,
+      "ms": 17.56,
+      "mode": "text"
+    },
+    {
+      "query": "green chart",
+      "expected": [
+        "dip",
+        "rise"
+      ],
+      "retrieved": [
+        "dip",
+        "rise",
+        "layout"
+      ],
+      "top1": true,
+      "top3": true,
+      "ms": 16.71,
+      "mode": "text"
+    },
+    {
+      "query": "purple elephant submarine",
+      "expected": [],
+      "retrieved": [],
+      "top1": true,
+      "top3": true,
+      "ms": 16.59,
+      "mode": "text"
+    }
+  ],
+  "grounding_http_status": 200,
+  "grounding": {
+    "answer": "The red circular indicator is located below and to the right of the high point of the green line.",
+    "supported": true,
+    "citations": [
+      {
+        "description": "High point of the green line",
+        "box": [
+          0.812,
+          0.134,
+          0.854,
+          0.165
+        ]
+      },
+      {
+        "description": "Red circular indicator",
+        "box": [
+          0.812,
+          0.639,
+          0.876,
+          0.741
+        ]
+      }
+    ],
+    "memory_id": "7b02d0b0-a561-40c6-998c-457736c857d9",
+    "query": "Where is the red circular indicator relative to the high point of the green line? Cite both regions.",
+    "latency_ms": 8115.85,
+    "interpretation": "Model interpretation grounded in the displayed pixels; verify the highlighted regions."
+  },
+  "persisted_captures": 3,
+  "deletion_verified": true,
+  "metrics": {
+    "top1": 0.75,
+    "top3": 1.0,
+    "positive_queries": 4,
+    "median_search_ms": 17.56
+  }
+}

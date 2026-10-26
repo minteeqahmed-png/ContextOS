@@ -1,0 +1,14 @@
+data/
+__pycache__/
+*.pyc
+.venv/
+
+.runtime/
+evaluation/output/
+.env
+.env.*
+!.env.example
+
+# Generated bundles and local browser screenshots are not source artifacts.
+submission/
+contextos-*.png

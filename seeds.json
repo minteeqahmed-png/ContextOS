@@ -1,0 +1,104 @@
+[
+  {
+    "id": "sample-1",
+    "title": "The pricing table I was looking for",
+    "type": "Documents",
+    "preview": "pdf",
+    "source": "Preview",
+    "origin": "Acme — pricing.pdf",
+    "date": "2026-10-23T05:24:00.000Z",
+    "description": "A side-by-side look at the Starter, Pro, and Enterprise plans. All the details, in one place.",
+    "tags": [
+      "Pricing",
+      "Research"
+    ],
+    "collection": "Work projects",
+    "text": "Acme pricing overview\nStarter: $19/month. 3 projects, basic analytics, community support.\nPro: $49/month. Unlimited projects, advanced analytics, priority support.\nEnterprise: Custom pricing. SSO, dedicated support, custom integrations.\nReviewed during Tuesday’s product meeting.",
+    "sample": true
+  },
+  {
+    "id": "sample-2",
+    "title": "A calmer onboarding experience",
+    "type": "Browser",
+    "preview": "design",
+    "source": "Chrome",
+    "origin": "Figma · Onboarding explorations",
+    "date": "2026-10-23T04:24:00.000Z",
+    "description": "A little inspiration for making the first few moments feel more human.",
+    "tags": [
+      "Design",
+      "Inspiration"
+    ],
+    "collection": "Design inspiration",
+    "text": "Onboarding explorations — A little room to grow. Welcome to your everyday space. A three-step onboarding flow with a gentle green palette, organic illustrations, and a clear Get started button.",
+    "sample": true
+  },
+  {
+    "id": "sample-3",
+    "title": "That useful React hook",
+    "type": "Code",
+    "preview": "code",
+    "source": "VS Code",
+    "origin": "useDebounce.ts",
+    "date": "2026-10-23T03:24:00.000Z",
+    "description": "A clean debounce hook to keep search fast and unnecessary requests out of the way.",
+    "tags": [
+      "React",
+      "Development"
+    ],
+    "collection": "Work projects",
+    "text": "import { useState, useEffect } from \"react\";\n\nexport function useDebounce<T>(value: T, delay = 300) {\n  const [debounced, setDebounced] = useState(value);\n  useEffect(() => {\n    const timer = setTimeout(() => setDebounced(value), delay);\n    return () => clearTimeout(timer);\n  }, [value, delay]);\n  return debounced;\n}",
+    "sample": true
+  },
+  {
+    "id": "sample-4",
+    "title": "Good ideas from the team sync",
+    "type": "Audio",
+    "preview": "audio",
+    "source": "Voice memo",
+    "origin": "Product team sync · transcript",
+    "date": "2026-10-22T10:24:00.000Z",
+    "description": "The moment we talked about making capture feel effortless. Worth coming back to.",
+    "tags": [
+      "Meeting",
+      "Product"
+    ],
+    "collection": "Work projects",
+    "text": "[02:14] Maya: What if saving context was as simple as taking a screenshot?\n[02:31] Alex: The key is preserving where you were, not just what you saw.\n[03:06] Maya: Let’s prioritize on-demand capture, then make every snapshot searchable.\n[04:10] Alex: Agreed. We should keep everything local, with no cloud dependency.",
+    "sample": true
+  },
+  {
+    "id": "sample-5",
+    "title": "The bigger picture, in one chart",
+    "type": "Browser",
+    "preview": "chart",
+    "source": "Chrome",
+    "origin": "Analytics · Monthly overview",
+    "date": "2026-10-22T08:24:00.000Z",
+    "description": "Weekly active users are trending in the right direction. A snapshot of the progress.",
+    "tags": [
+      "Analytics",
+      "Growth"
+    ],
+    "collection": "Work projects",
+    "text": "Weekly active users — 24,892, up 18.6% this month.\nWeek 1: 14,200. Week 2: 16,800. Week 3: 15,900. Week 4: 19,600. Week 5: 21,100. Week 6: 24,892.\nThe growth chart shows increasing engagement following the onboarding update.",
+    "sample": true
+  },
+  {
+    "id": "sample-6",
+    "title": "Notes for a more focused day",
+    "type": "Documents",
+    "preview": "doc",
+    "source": "Notion",
+    "origin": "Personal workspace · Reading notes",
+    "date": "2026-10-21T06:24:00.000Z",
+    "description": "A few thoughts on deep work, attention, and making space for what matters.",
+    "tags": [
+      "Reading",
+      "Personal"
+    ],
+    "collection": "Reading list",
+    "text": "Make space for what matters\n1. Start the day with one clear intention.\n2. Give your attention to one thing at a time.\n3. Capture the thought, then come back to the task.\n4. Leave a little room to think.\nAttention is a finite resource. Spend it on purpose.",
+    "sample": true
+  }
+]

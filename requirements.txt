@@ -1,0 +1,8 @@
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+httpx>=0.27,<1
+PyMuPDF==2.0
+rapidocr-onnxruntime==1.4.4
+Pillow>=11,<14
+tzdata>=2025.1
+psutil>=5.9,<8
