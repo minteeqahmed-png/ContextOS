@@ -4,25 +4,53 @@ A local recall workspace for browser/window frames, images, PDF pages, and notes
 
 ## Run on Windows
 
+### Fresh clone prerequisites
+
+Install Git and Python 3.12, then run these commands in PowerShell:
+
+```powershell
+git clone https://github.com/minteeqahmed-png/ContextOS.git
+cd ContextOS
+python -m venv .venv
+.venv\Scripts\python -m pip install -r requirements.txt
+if (!(Test-Path .env)) { Copy-Item .env.example .env }
+```
+
+Use the virtual environment's Python directly; activation is optional. Dependency installation requires internet. The repository does not include this development machine's `.runtime` dependencies, API keys, or capture database.
+
 ### Tested Gemini demo
 
 Copy `.env.example` to `.env` only if you do not already have a `.env`, then put your Google AI Studio key after `CONTEXTOS_VISION_API_KEY=`. Do not commit or share that file.
 
-Run `python start_gemini.py` and open http://127.0.0.1:8003. This explicitly enables Gemini `gemini-3.5-flash-lite` through Google's OpenAI-compatible API, with a separate `data/gemini-demo.sqlite3` library and interactive outbound review. Original frames, OCR and search stay local; approved sanitized copies and queries go to Google. This is not an entirely offline mode. Provider terms, quotas and billing settings apply.
+After installing dependencies above and saving your key, run:
+
+```powershell
+.venv\Scripts\python start_gemini.py
+```
+
+Open http://127.0.0.1:8003. This explicitly enables Gemini `gemini-3.5-flash-lite` through Google's OpenAI-compatible API, with a separate `data/gemini-demo.sqlite3` library and interactive outbound review. Original frames, OCR and search stay local; approved sanitized copies and queries go to Google. This is not an entirely offline mode. Provider terms, quotas and billing settings apply.
 
 The live demo uses Gemini; Meta/Ollama and OpenRouter integrations remain available but have not completed a live Meta acceptance test on this workstation. Local embeddings are unavailable in the measured demo: retrieval searches OCR and visual descriptions using local keyword/FTS ranking. Do not claim demonstrated dense semantic retrieval.
 
 Run `python evaluation/full_demo.py` only when you intend to make live Google requests with its generated public fixtures. See `evaluation/GEMINI_LIVE_RESULTS.md` and `SUBMISSION_READINESS.md` for scope and measured results.
 
-Python 3.12 is tested. From this directory:
+### Local-only mode (no API key)
+
+After installing dependencies, run:
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\python -m pip install -r requirements.txt
 .venv\Scripts\python server.py
 ```
 
 Open http://127.0.0.1:8000. In this workspace, dependencies are already installed in `.runtime`, so `python server.py` also works. `.runtime` takes precedence over the environment; for a clean deployment omit that folder and use the virtual environment. Install-time dependency downloads require internet. The installed OCR package includes local ONNX model files; inference does not fetch models.
+
+### First-run checks
+
+- A fresh library starts empty under **Your captures**; **Examples** are illustrative samples. Import an image from `evaluation/sources` to exercise the real pipeline.
+- Settings shows the configured vision model. A configured API key is not proof of a successful inference request; inspect the imported capture's processing stages.
+- In Gemini mode, choose **Review outbound frame** after extraction, inspect/mask the copy, then choose **Approve & Enrich**. Without approval, it remains local.
+- If a dependency is missing, rerun pip with the same `.venv\Scripts\python` used to launch the app. If port 8003 is occupied, stop the previous demo process before relaunching.
+- To return to local-only processing, stop the Gemini launcher and run `server.py` with `CONTEXTOS_MODE=LOCAL_ONLY`. Hosted vision needs internet; previously indexed local evidence remains searchable without it.
 
 ## Capture and recall
 
